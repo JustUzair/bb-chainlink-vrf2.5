@@ -47,7 +47,7 @@ forge fmt
 
 ```bash
 source .env
-forge script script/DeployRaffle.s.sol --rpc-url buildbear --broadcast --private-key $PRIVATE_KEY
+forge script script/DeployRaffle.s.sol --rpc-url buildbear --broadcast --private-key $PRIVATE_KEY --slow
 ```
 
 ## Simulating running on BuilbBear's Sandbox

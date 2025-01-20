@@ -32,11 +32,13 @@ contract CreateSubscriptionManager is Script {
         console.log("VRFv2PlusSubscriptionManager: ", address(subscriptionManager));
         console.log("Your subscription Id is: ", subscriptionManager.s_subscriptionId());
 
+        subscriptionManager.addConsumer(vrfCoordinatorV2_5);
+
         IERC20(linkToken).approve(address(subscriptionManager), 20e18);
         IERC20(linkToken).transfer(address(subscriptionManager), 10e18);
 
         subscriptionManager.topUpSubscription(10e18);
-        subscriptionManager.addConsumer(vrfCoordinatorV2_5);
+
         vm.stopBroadcast();
         return (subscriptionManager.s_subscriptionId(), address(subscriptionManager));
     }

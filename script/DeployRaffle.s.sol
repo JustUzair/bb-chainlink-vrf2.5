@@ -8,6 +8,8 @@ import {AddConsumer, CreateSubscription, FundSubscription, CreateSubscriptionMan
 import {console2} from "forge-std/console2.sol";
 import {VRFv2PlusSubscriptionManager} from "../src/utils/SubscriptionManager.sol";
 
+// sub manager, and link transfers work correctly with broadcast
+
 contract DeployRaffle is Script {
     function run() external returns (Raffle, HelperConfig) {
         HelperConfig helperConfig = new HelperConfig(); // This comes with our mocks!
@@ -34,13 +36,22 @@ contract DeployRaffle is Script {
         }
 
         vm.startBroadcast(config.account);
+        console2.log("subId", subId);
+        console2.log("config.automationUpdateInterval", config.automationUpdateInterval);
+        console2.log("config.raffleEntranceFee", config.raffleEntranceFee);
+        console2.log("config.callbackGasLimit", config.callbackGasLimit);
+        console2.log(
+            "VRFv2PlusSubscriptionManager(customSubscriptionManager).vrfCoordinatorV2Plus()",
+            VRFv2PlusSubscriptionManager(customSubscriptionManager).vrfCoordinatorV2Plus()
+        );
+
         Raffle raffle = new Raffle(
-            config.subscriptionId,
+            subId,
             config.gasLane,
             config.automationUpdateInterval,
             config.raffleEntranceFee,
             config.callbackGasLimit,
-            config.vrfCoordinatorV2_5
+            VRFv2PlusSubscriptionManager(customSubscriptionManager).vrfCoordinatorV2Plus()
         );
 
         uint256[] memory randomWords = new uint256[](8);
@@ -80,6 +91,6 @@ contract DeployRaffle is Script {
 
         // We already have a broadcast in here
         // addConsumer.addConsumer(address(raffle), config.vrfCoordinatorV2_5, config.subscriptionId, config.account);
-        return (raffle, helperConfig);
+        // return (raffle, helperConfig);
     }
 }

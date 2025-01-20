@@ -15,7 +15,7 @@ abstract contract CodeConstants {
 
     uint256 public constant ETH_SEPOLIA_CHAIN_ID = 11155111;
     uint256 public constant ETH_MAINNET_CHAIN_ID = 1;
-    uint256 public constant ETH_MAINNET_SANDBOX_CHAIN_ID = 11380;
+    uint256 public constant ETH_MAINNET_SANDBOX_CHAIN_ID = 23150;
     uint256 public constant LOCAL_CHAIN_ID = 31337;
 }
 
@@ -78,13 +78,13 @@ contract HelperConfig is CodeConstants, Script {
     function getMainnetEthConfig() public pure returns (NetworkConfig memory mainnetNetworkConfig) {
         mainnetNetworkConfig = NetworkConfig({
             subscriptionId: 0, // If left as 0, our scripts will create one!
-            gasLane: 0x9fe0eebf5e446e3c998ec9bb19951541aee00bb90ea201ae456421a2ded86805,
+            gasLane: 0xc6bf2e7b88e5cfbb4946ff23af846494ae1f3c65270b79ee7876c9aa99d3d45f,
             automationUpdateInterval: 30, // 30 seconds
             raffleEntranceFee: 0.001 ether,
             callbackGasLimit: 500000, // 500,000 gas
             vrfCoordinatorV2_5: 0x271682DEB8C4E0901D1a1550aD2e64D568E69909,
             link: 0x514910771AF9Ca656af840dff83E8264EcF986CA,
-            account: 0x2882cAA7e14bdf432A295cFbAD5CA22e69b42E39
+            account: 0x6c5af940432D6c5eA9E0659D702c01bDDfc722F3
         });
     }
 
@@ -97,7 +97,7 @@ contract HelperConfig is CodeConstants, Script {
             callbackGasLimit: 500000, // 500,000 gas
             vrfCoordinatorV2_5: 0x9DdfaCa8183c41ad55329BdeeD9F6A8d53168B1B,
             link: 0x779877A7B0D9E8603169DdbD7836e478b4624789,
-            account: 0x2882cAA7e14bdf432A295cFbAD5CA22e69b42E39
+            account: 0x6c5af940432D6c5eA9E0659D702c01bDDfc722F3
         });
     }
 

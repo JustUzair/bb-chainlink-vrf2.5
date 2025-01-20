@@ -5,9 +5,9 @@ libs = ["lib"]
 remappings = ['@chainlink/contracts/=lib/chainlink-brownie-contracts/contracts/', '@solmate=lib/solmate/src/']
 
 [profile.sourcify]
-buildbear={url="https://rpc.dev.buildbear.io/verify/sourcify/server/conservative-nebula-088a5b43"}
+buildbear={url="https://rpc.buildbear.io/verify/sourcify/server/uzair"}
 
 [rpc_endpoints]
-buildbear="https://rpc.dev.buildbear.io/conservative-nebula-088a5b43"
+buildbear="https://rpc.buildbear.io/uzair"
 # See more config options https://github.com/foundry-rs/foundry/tree/master/config
 
