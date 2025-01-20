@@ -1,0 +1,13 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+remappings = ['@chainlink/contracts/=lib/chainlink-brownie-contracts/contracts/', '@solmate=lib/solmate/src/']
+
+[profile.sourcify]
+buildbear={url="https://rpc.dev.buildbear.io/verify/sourcify/server/conservative-nebula-088a5b43"}
+
+[rpc_endpoints]
+buildbear="https://rpc.dev.buildbear.io/conservative-nebula-088a5b43"
+# See more config options https://github.com/foundry-rs/foundry/tree/master/config
+
